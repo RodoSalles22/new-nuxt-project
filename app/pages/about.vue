@@ -1,13 +1,41 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 h-screen">
-    <h1 class="font-bold text-2xl text-warning">
-      About Nuxt UI
-    </h1>
-    <p class="text-error">
-      This is the about page for Nuxt UI.
-    </p>
-    <button class="btn btn-primary border border-inverted rounded-2xl p-2" @click="$router.push('/')">
-      Go to Home Page
-    </button>
+  <div class="flex justify-center items-center min-h-screen transition-colors">
+    <div class="flex flex-wrap gap-8 max-w-5xl">
+      <Card
+        v-for="card in cards"
+        :key="card.title"
+        :icon="card.icon"
+        :title="card.title"
+        :description="card.description"
+      />
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import Card from '~/components/card.vue'
+
+const cards = [
+  {
+    icon: `badminton`,
+    title: 'Badminton',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo volLorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluLorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluLorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluLorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluLorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluuptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?'
+  },
+  {
+    icon: `computer`,
+    title: 'Developer',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?'
+  },
+  {
+    icon: `person`,
+    title: 'Personal Life',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ab repudiandae, explicabo voluptate et hic cum ratione a. Officia delectus illum perferendis maiores quia molestias vitae fugiat aspernatur alias corporis?'
+  }
+]
+</script>
+
+<style scoped>
+.perspective-1000 {
+  perspective: 1000px;
+}
+</style>
